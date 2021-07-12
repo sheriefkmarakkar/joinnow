@@ -1,0 +1,51 @@
+<div class="card" style="height: 100%;">
+  
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><input type="text"  [(ngModel)]="pdate" class="form-control" placeholder="Post Date"/></li>
+
+   <li class="list-group-item"><input type="text"  [(ngModel)]="jname" class="form-control" placeholder="Job name"/></li>
+    <li class="list-group-item"><input type="text"  [(ngModel)]="qual" class="form-control" placeholder="Qualification"/></li>
+    <li class="list-group-item"><select class="form-control" id="" [(ngModel)]="cat" (click)="otherCheck();">
+      <option value="CENTRAL">CENTRAL</option>
+      <option value="STATE">STATE</option>
+
+      <option value="RAILWAY">RAILWAY</option>
+      <option value="DIFENCE">DIFENCE</option>
+      <option value="PSU">PSU</option>
+
+      <option value="OTHER">OTHER</option>
+      
+
+    </select></li>
+    <li class="list-group-item" *ngIf="ss"><select class="form-control" id="" [(ngModel)]="state">
+      <option value="Kerala">Kerala</option>
+      <option value="Tamil Nadu (TN)">Tamil Nadu (TN)</option>
+      <option value="Maharashtra (MH)">Maharashtra (MH)</option>
+    </select></li>
+    <li class="list-group-item" *ngIf="central"><select class="form-control" id="" [(ngModel)]="cen">
+      <option value="SSC">SSC</option>
+      <option value="UPSC">UPSC</option>
+      <option value="ISRO">ISRO</option>
+    </select></li>
+    <li class="list-group-item" *ngIf="public"><select class="form-control" id="" [(ngModel)]="psu">
+      <option value="IOCL">IOCL</option>
+      <option value="BEL">BEL</option>
+      <option value="ONGC">ONGC</option>
+      <option value="NLC">NLC</option>
+      <option value="BPCL">BPCL</option>
+      <option value="HPCL">HPCL</option>
+    </select></li>
+    <li class="list-group-item" *ngIf="df"><input type="text" [(ngModel)]="dif" class="form-control" placeholder="Specify Board" (click)="otherCheck();"/></li>
+    <li class="list-group-item" *ngIf="t"><input type="text" [(ngModel)]="othername" class="form-control" placeholder="Specify Other"/></li>
+
+    <li class="list-group-item"><input type="text" [(ngModel)]="ldate" class="form-control" placeholder="Last Date"/></li>
+    <li class="list-group-item">   <input type="file" id="f" (change)="userProfile($event)" >
+      <small>Upload pdf file</small></li>
+      <li class="list-group-item"><input type="text" [(ngModel)]="jlink" class="form-control" placeholder="Apply link"/></li>
+  
+    <li class="list-group-item"><input type="button" (click)="saveJob();" class="btn btn-primary" value="Submit"/></li>
+
+
+  </ul>
+
+  </div>

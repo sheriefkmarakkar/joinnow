@@ -1,0 +1,183 @@
+
+<div class="card" style="height: 100%;">
+  <div class="card-header">
+ <!--
+   <div class="form-group">
+      <div class="form-inline" style="margin-left: 20%;">
+        
+        <input type="text"  [(ngModel)]="jobname" class="form-control" placeholder="Search a Job"/>
+        &emsp;&emsp;
+          
+            <input type="text"  [(ngModel)]="place" class="form-control" placeholder="Place" style="margin-left: 2%;"/>
+           
+            <button style="align-items: center;width: 200px;margin-left: 2%;" type="button" class="btn btn-dark" (click)="search();">Find A Job</button>
+      
+      </div>
+      </div> 
+    -->
+    <div>
+      <a *ngFor="let c of count" (click)="selectJob(c);" class="btn btn-dark" style="margin-left: 10px;color: white;">{{c}}</a>&emsp;
+    </div>
+  </div>
+
+  <div class="card-body">
+    
+
+
+
+ 
+  
+<div *ngFor="let j of job | paginate: { itemsPerPage: 3, currentPage: p }">
+  <div class="card" style="width: 500px;margin-left: 10px;margin-top: 20px;" (click)="model1(j.id);">
+    <div class="card-body">
+      <table>
+        <tr>
+          <td style="font-weight: bold;font-size: 25px;"> {{j.job}}</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Company </td>
+          <td>: {{j.comp}}</td>
+        </tr>
+        <tr>
+          <td>Category</td>
+          <td>: {{j.cat}}</td>
+        </tr>
+        <tr>
+          <td>Skills </td>
+          <td>: {{j.skill}}</td>
+        </tr>
+        
+      </table>
+      
+   
+  </div>
+  <br>
+  </div>
+  </div>
+  <br>
+                
+  <pagination-controls (pageChange)="p = $event" class="float-right"></pagination-controls>
+</div>
+   <!--
+  <div class="card" id="cd" style="width: 700px;margin-left: 600px;height: 400px;position: fixed;margin-top: 100px;display: none;">
+    <div class="card-body">
+      <table>
+        <tr>
+          <td style="font-weight: bold;font-size: 25px;"> {{selectedJob.jobname}}</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Company </td>
+          <td>: {{selectedJob.comp}}</td>
+        </tr>
+        <tr>
+          <td>Educational Qualification</td>
+          <td>: {{selectedJob.edu}}</td>
+        </tr>
+        <tr>
+          <td>Skills </td>
+          <td>: {{selectedJob.skill}}</td>
+        </tr>
+        
+      </table>
+    </div>
+    </div>
+
+
+  --> 
+ 
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><label style="font-weight: bold;font-size: 25px;"> {{selectedJob.job}}</label></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card-body">
+          <table>
+            <tr>
+              <td>Company </td>
+              <td>: {{selectedJob.comp}}</td>
+            </tr>
+            <tr>
+              <td>Educational Qualification</td>
+              <td>: {{selectedJob.edu}}</td>
+            </tr>
+            <tr>
+              <td>Skills </td>
+              <td>: {{selectedJob.skill}}</td>
+            </tr>
+            <tr>
+              <td>Experience</td>
+              <td>: {{selectedJob.exp}}</td>
+            </tr>
+            <tr>
+              <td>Education</td>
+              <td>: {{selectedJob.edu}}</td>
+            </tr>
+            <tr>
+              <td>Discription</td>
+              <td>: {{selectedJob.disc}}</td>
+            </tr>
+            <tr>
+              <td>Place</td>
+              <td>: {{selectedJob.place}}</td>
+            </tr>
+            <tr>
+              <td>Last Date</td>
+              <td>: {{selectedJob.ldate}}</td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>: {{selectedJob.email}}</td>
+            </tr>
+            
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="applyModal();">Apply Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><label style="font-weight: bold;font-size: 25px;"> {{selectedJob.job}}</label></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card-body">
+          <table>
+            
+            <tr>
+              <td>Email</td>
+              <td><input type="text" [(ngModel)]="user.email1"></td>
+            </tr>
+            <tr>
+              <td>cv</td>
+              <td>
+                
+         <input type="file" id="f" (change)="userProfile($event)" >
+          <small>Upload pdf file</small>
+              </td>
+              
+            </tr>
+            
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="applyNow();">Apply Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+

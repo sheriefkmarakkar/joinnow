@@ -1,0 +1,120 @@
+<div class="grey-bg container-fluid">
+    <section id="minimal-statistics">
+      <div class="row">
+        <div class="col-12 mt-3 mb-1">
+          <h4 class="text-uppercase">Major Recruiters</h4>
+          <p>Statistics on minimal cards.</p>
+        </div>
+      </div>
+      
+    
+      <div class="row">
+        <div class="col-xl-3 col-sm-6 col-12">
+          <div class="card" (click)="ssc('SSC');" (click)="mElement.scrollIntoView({ behavior: 'smooth', block: 'start' })">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="media-body text-left">
+                    <h4>SSC</h4>
+                    
+                  </div>
+                  <div class="align-self-center">
+                    <i class="icon-rocket danger font-large-2 float-right"></i>
+                  </div> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 col-12">
+          <div class="card" (click)="ssc('UPSC');" (click)="mElement.scrollIntoView({ behavior: 'smooth', block: 'start' })">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="media-body text-left">
+                      <h4>UPSC</h4>
+                  </div>
+                  <div class="align-self-center">
+                    <i class="icon-user success font-large-2 float-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="col-xl-3 col-sm-6 col-12">
+          <div class="card" (click)="ssc('ISRO');" (click)="mElement.scrollIntoView({ behavior: 'smooth', block: 'start' })">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="media-body text-left">
+                      <h4>ISRO</h4>
+                  </div>
+                  <div class="align-self-center">
+                    <i class="icon-pie-chart warning font-large-2 float-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 col-12">
+          <div class="card" (click)="other();" (click)="mElement.scrollIntoView({ behavior: 'smooth', block: 'start' })">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="media-body text-left">
+                    <h4>OTHER</h4>
+                    
+                  </div>
+                  <div class="align-self-center">
+                    <i class="icon-support primary font-large-2 float-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+     
+    </section>
+    <section>
+      <table class="table" #mElement>
+        <thead>
+          <tr>
+            <th scope="col">Posted Date</th>
+            <th scope="col">Recruitment Board</th>
+           
+            <th scope="col">Exam / Post Name</th>
+            <th scope="col">Qualification</th>
+            <th scope="col">Last Date</th>
+            <th scope="col">Notification</th>
+            <th scope="col">Get More Information</th>
+
+            
+
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let j of cgj">
+            <th scope="row">{{j.pdate}}</th>
+            <td>{{j.other}}</td>
+           
+            <td>{{j.jname}}</td>
+            <td>{{j.qual}}</td>
+            <td>{{j.ldate}}</td>
+            <td><button (click)="ClickDownloadPdf(j.fileContent,j.jname)">
+              Download PDF
+            </button></td>
+           <td><a mat-raised-button href="{{j.link}}">For More</a></td>
+            
+          </tr>
+          
+        </tbody>
+      </table>
+    </section>
+   
+  </div>
